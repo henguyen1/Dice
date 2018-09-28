@@ -1,13 +1,14 @@
+int countDie;
 void setup()
 {	
 	noLoop();
-	size(540,540);
+	size(800,800);
 }
 void draw()
 {
-	for(int y = 0; y < 500; y += 45)
+	for(int y = 0; y < 700; y += 21)
 	{
-		for(int x = 0; x < 500; x +=45)
+		for(int x = 0; x < 700; x +=21)
 		{
 			Die bob = new Die(x,y);
 			bob.roll();
@@ -15,8 +16,6 @@ void draw()
 		}
 			
 	}
-
-	
 }
 void mousePressed()
 {
@@ -31,7 +30,7 @@ class Die //models one single dice cube
 		dieNumber = 0;
 		myX = x;
 		myY = y;
-
+		countDie = 0;
 	}
 	void roll()
 	{
@@ -39,90 +38,58 @@ class Die //models one single dice cube
 		r = r + (int)((Math.random() * 256));
 		g = g + (int)((Math.random() * 256));
 		b = b + (int)((Math.random() * 256));
+		countDie = countDie + dieNumber;
 		System.out.println(countDie);
-		countDie = 0;
-		
-		if (dieNumber == 1)
-		{
-			countDie = countDie + 1;
-		}
-		else if (dieNumber == 2)
-		{
-			countDie = countDie + 2;
-		}	
-		else if (dieNumber == 3)
-		{
-			countDie = countDie + 3;
-		}	
-		else if (dieNumber == 4)
-		{
-			countDie = countDie + 4;
-		}	
-		else if (dieNumber == 5)
-		{
-			countDie = countDie + 5;
-		}
-		else if (dieNumber == 6)
-		{
-			countDie = countDie + 6;
-		}
-		text("The die add up to be: " + countDie,600,600);
 	}
 	void show()
 	{
-		
 		fill(r,g,b);
-		rect(myX,myY,40,40);
+		rect(myX,myY,20,20);
+		
 		if (dieNumber == 1)
 		{
-			countDie = countDie + 1;
 			fill(0);
-			ellipse(myX+20,myY+20,5,5);
+			ellipse(myX+10,myY+10,5,5);
 		}
 		else if (dieNumber == 2)
-		{
-			countDie = countDie + 2;
+		{			
 			fill(0);
-			ellipse(myX+ 7,myY+ 7,5,5); 
-			ellipse(myX+ 33,myY+ 33,5,5);
+			ellipse(myX+ 3.5,myY+ 3.5,5,5); 
+			ellipse(myX+ 16.5,myY+ 16.5,5,5);
 		}	
 		else if (dieNumber == 3)
-		{
-			countDie = countDie + 3;
+		{		
 			fill(0);
-			ellipse(myX+ 7,myY+ 7,5,5); 
-			ellipse(myX+ 20,myY+ 20,5,5);
-			ellipse(myX+ 33,myY+ 33,5,5);
+			ellipse(myX+ 3.5,myY+ 3.5,5,5); 
+			ellipse(myX+ 10,myY+ 10,5,5);
+			ellipse(myX+ 16.5,myY+ 16.5,5,5);
 		}	
 		else if (dieNumber == 4)
-		{
-			countDie = countDie + 4;
+		{			
 			fill(0);
-			ellipse(myX+10,myY+10,5,5);
-			ellipse(myX+10,myY+30,5,5);
-			ellipse(myX+30,myY+10,5,5);
-			ellipse(myX+30,myY+30,5,5);	
+			ellipse(myX+5,myY+5,5,5);
+			ellipse(myX+5,myY+5,5,5);
+			ellipse(myX+15,myY+15,5,5);
+			ellipse(myX+15,myY+15,5,5);	
 		}	
 		else if (dieNumber == 5)
-		{
-			countDie = countDie + 5;
+		{		
 			fill(0);
+			ellipse(myX+5,myY+5,5,5);
+			ellipse(myX+5,myY+15,5,5);
+			ellipse(myX+15,myY+5,5,5);
+			ellipse(myX+15,myY+15,5,5);
 			ellipse(myX+10,myY+10,5,5);
-			ellipse(myX+10,myY+30,5,5);
-			ellipse(myX+30,myY+10,5,5);
-			ellipse(myX+30,myY+30,5,5);
-			ellipse(myX+20,myY+20,5,5);
 		}
 		else if (dieNumber == 6)
-		{
-			countDie = countDie + 6;
+		{	
 			fill(0);
-			ellipse(myX+10,myY+10,5,5);
-			ellipse(myX+10,myY+30,5,5);
-			ellipse(myX+30,myY+10,5,5);
-			ellipse(myX+30,myY+30,5,5);
-			ellipse(myX+20,myY+10,5,5);
-			ellipse(myX+20,myY+30,5,5);
+			ellipse(myX+5,myY+5,5,5);
+			ellipse(myX+5,myY+15,5,5);
+			ellipse(myX+15,myY+5,5,5);
+			ellipse(myX+15,myY+15,5,5);
+			ellipse(myX+10,myY+5,5,5);
+			ellipse(myX+10,myY+15,5,5);
 		}
 	}			
 }
