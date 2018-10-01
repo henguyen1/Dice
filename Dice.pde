@@ -14,6 +14,7 @@ void draw()
 			bob.roll();
 			bob.show();
 		}
+		countDie =  + countDie;
 			
 	}
 }
@@ -23,26 +24,27 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	int dieNumber, myX,myY, countDie, r, g , b;
+	int dieNumber, myX,myY, r, g , b;
 	
 	Die(int x, int y) 
 	{
 		dieNumber = 0;
 		myX = x;
 		myY = y;
-		countDie = 0;
 	}
 	void roll()
 	{
 		dieNumber = dieNumber + ((int)((Math.random() * 6) + 1));
-		r = r + (int)((Math.random() * 256));
-		g = g + (int)((Math.random() * 256));
-		b = b + (int)((Math.random() * 256));
-		countDie = countDie + dieNumber;
 		System.out.println(countDie);
+		text("here amount die: "+ countDie,500,800);
+		
+		
 	}
 	void show()
 	{
+		r = r + (int)((Math.random() * 256));
+		g = g + (int)((Math.random() * 256));
+		b = b + (int)((Math.random() * 256));
 		fill(r,g,b);
 		rect(myX,myY,20,20);
 		
