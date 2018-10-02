@@ -2,21 +2,23 @@ int countDie;
 void setup()
 {	
 	noLoop();
-	size(800,800);
+	size(700,700);
 }
 void draw()
 {
-	for(int y = 0; y < 700; y += 21)
+	countDie = 0;
+	background(255);
+	for(int y = 0; y < 600; y += 21)
 	{
-		for(int x = 0; x < 700; x +=21)
+		for(int x = 0; x < 600; x +=21)
 		{
 			Die bob = new Die(x,y);
 			bob.roll();
 			bob.show();
-		}
-		countDie =  + countDie;
-			
+			countDie = bob.dieNumber + countDie;
+		}	
 	}
+	text("The sum of die is : "+ countDie,500,700);
 }
 void mousePressed()
 {
@@ -28,20 +30,16 @@ class Die //models one single dice cube
 	
 	Die(int x, int y) 
 	{
-		dieNumber = 0;
 		myX = x;
 		myY = y;
 	}
 	void roll()
 	{
-		dieNumber = dieNumber + ((int)((Math.random() * 6) + 1));
-		System.out.println(countDie);
-		text("here amount die: "+ countDie,500,800);
-		
-		
+		dieNumber = ((int)((Math.random() * 6) + 1));
 	}
 	void show()
-	{
+	{	
+		
 		r = r + (int)((Math.random() * 256));
 		g = g + (int)((Math.random() * 256));
 		b = b + (int)((Math.random() * 256));
